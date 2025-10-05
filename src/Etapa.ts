@@ -14,11 +14,19 @@ class Etapa {
         this.funcionarios = funcionarios;
     }
 
-    iniciar(): void;
+    iniciar(){
+        this.status = StatusEtapa.ANDAMENTO; 
+    };
 
-    finalizar(): void;
+    finalizar(){
+        this.status = StatusEtapa.CONCLUIDO
+    };
 
-    associarFuncionario(if: Funcionario): void;
+    associarFuncionario(funcionario: Funcionario){
+        this.funcionarios.push(funcionario);
+    };
 
-    listaFuncionarios(): Array<Funcionario>;
+    listaFuncionarios(){
+        return this.funcionarios.map(funcionario => funcionario.nome).join(", ");
+    }
 }
